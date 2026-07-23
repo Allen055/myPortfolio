@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Contact Me
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container py-5">
+
+
+<div class="card shadow p-4">
+
+
+<h1 class="text-center mb-4">Contact Me</h1>
+
+<p class="text-center"> Have a project idea? Send me a message.</p>
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+{{ form.as_p }}
+
+
+<button class="btn btn-primary">
+
+Send Message
+
+</button>
+
+</form>
+</div>
+</div>
+{% endblock %}

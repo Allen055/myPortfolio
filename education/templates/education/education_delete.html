@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Education{% endblock %}
+
+{% block content %}
+
+<div class="container py-5 text-center">
+
+<h2>
+
+Delete "{{ education.school_name }}"?
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<button class="btn btn-danger">
+
+Delete
+
+</button>
+
+<a href="{% url 'education:education_list' %}"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Messages
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="container py-5">
+
+
+<h1 class="mb-4">
+Client Messages
+</h1>
+
+
+
+{% for message in messages %}
+
+
+<div class="card shadow mb-3">
+
+
+<div class="card-body">
+
+
+<h4>
+{{ message.subject }}
+</h4>
+
+
+<p>
+<strong>Name:</strong>
+{{ message.name }}
+</p>
+
+
+<p>
+<strong>Email:</strong>
+{{ message.email }}
+</p>
+
+
+<p>
+<strong>Phone:</strong>
+{{ message.phone }}
+</p>
+
+
+<p>
+{{ message.message }}
+</p>
+
+
+<small class="text-muted">
+{{ message.created_at }}
+</small>
+
+
+</div>
+</div>
+
+{% empty %}
+
+<div class="alert alert-info">
+
+No messages yet.
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

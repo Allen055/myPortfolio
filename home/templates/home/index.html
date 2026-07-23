@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero-section">
+
+    <div class="container-fluid">
+
+        <div class="row align-items-center">
+
+            <!-- Left Side -->
+            <div class="col-lg-6 hero-text">
+
+                <h5 class="text-primary">
+                    Welcome to my Portfolio
+                </h5>
+
+                <h1>
+                    {{ home.full_name }}
+                </h1>
+
+                <h2>
+                    {{ home.profession }}
+                </h2>
+
+                <p>
+                    {{ home.short_bio }}
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    {% if home.resume %}
+                    <a href="{{ home.resume.url }}" class="btn btn-primary btn-lg" download>  Download Resume</a>
+                    
+                    {% endif %}
+
+
+                    <a href="{% url 'portfolio:portfolio_list' %}"
+                       class="btn btn-outline-light btn-lg">
+                        View Portfolio
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right Side -->
+            <div class="col-lg-6 hero-image text-center">
+
+                {% if home.hero_image %}
+                    <img src="{{ home.hero_image.url }}"
+                         class="img-fluid rounded-circle shadow-lg"
+                         alt="{{ home.full_name }}">
+                {% endif %}
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

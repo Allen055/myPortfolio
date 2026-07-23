@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h2>Delete Project</h2>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ project.title }}</strong>?
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button class="btn btn-danger">
+            Yes, Delete
+        </button>
+
+        <a href="{% url 'portfolio:portfolio_detail' project.pk %}"
+           class="btn btn-secondary">
+            Cancel
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

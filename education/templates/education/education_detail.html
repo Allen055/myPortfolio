@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Education Details{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>{{ education.school_name }}</h2>
+
+<p><strong>Degree:</strong> {{ education.degree }}</p>
+
+<p><strong>Field:</strong> {{ education.field_of_study }}</p>
+
+<p><strong>Grade:</strong> {{ education.grade }}</p>
+
+<p>{{ education.description }}</p>
+
+<a href="{% url 'education:education_update' education.pk %}"
+class="btn btn-warning">
+
+Edit
+
+</a>
+
+<a href="{% url 'education:education_delete' education.pk %}"
+class="btn btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

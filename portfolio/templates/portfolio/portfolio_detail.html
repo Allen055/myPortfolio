@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1>{{ project.title }}</h1>
+
+    {% if project.image %}
+        <img src="{{ project.image.url }}"
+             class="img-fluid rounded mb-4">
+    {% endif %}
+
+    <p>{{ project.description }}</p>
+
+    <h5>Technologies</h5>
+
+    <p>{{ project.technologies }}</p>
+
+    {% if project.github_url %}
+        <a href="{{ project.github_url }}"
+           class="btn btn-dark"
+           target="_blank">
+            GitHub
+        </a>
+    {% endif %}
+
+    {% if project.live_demo %}
+        <a href="{{ project.live_demo }}"
+           class="btn btn-success"
+           target="_blank">
+            Live Demo
+        </a>
+    {% endif %}
+
+    <hr>
+
+    <a href="{% url 'portfolio:portfolio_update' project.pk %}"
+       class="btn btn-warning">
+        Edit
+    </a>
+
+    <a href="{% url 'portfolio:portfolio_delete' project.pk %}"
+       class="btn btn-danger">
+        Delete
+    </a>
+
+</div>
+
+{% endblock %}

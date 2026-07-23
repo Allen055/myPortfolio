@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Education{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="d-flex justify-content-between mb-4">
+
+<h2>Education</h2>
+
+<a href="{% url 'education:education_create' %}"
+class="btn btn-primary">
+
+Add Education
+
+</a>
+
+</div>
+
+<div class="row">
+
+{% for education in educations %}
+
+<div class="col-md-6 mb-4">
+
+<div class="card shadow h-100">
+
+{% if education.school_logo %}
+<img src="{{ education.school_logo.url }}"
+class="card-img-top"
+style="height:180px;object-fit:cover;">
+{% endif %}
+
+<div class="card-body">
+
+<h4>{{ education.school_name }}</h4>
+
+<p>{{ education.degree }}</p>
+
+<p>{{ education.field_of_study }}</p>
+
+<a href="{% url 'education:education_detail' education.pk %}"
+class="btn btn-dark">
+
+View
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% empty %}
+
+<p>No education records yet.</p>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Skills{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2>My Skills</h2>
+
+        <a href="{% url 'skills:skill_create' %}"
+           class="btn btn-primary">
+
+            Add Skill
+
+        </a>
+
+    </div>
+
+    <div class="row">
+
+        {% for skill in skills %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow h-100">
+
+                {% if skill.icon %}
+
+                <img src="{{ skill.icon.url }}"
+                     class="card-img-top"
+                     style="height:180px;object-fit:cover;">
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <h4>{{ skill.name }}</h4>
+
+                    <p>{{ skill.level }}</p>
+
+                    <div class="progress mb-3">
+
+                        <div class="progress-bar"
+
+                             style="width:{{ skill.percentage }}%;">
+
+                            {{ skill.percentage }}%
+
+                        </div>
+
+                    </div>
+
+                    <a href="{% url 'skills:skill_detail' skill.pk %}"
+
+                       class="btn btn-dark">
+
+                        View
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>No skills available.</p>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

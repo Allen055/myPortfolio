@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-dark text-white">
+                    <h3>Login</h3>
+                </div>
+
+                <div class="card-body">
+
+                    <!-- 👇 THIS IS WHERE YOUR FORM GOES -->
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
+                        <button type="submit">
+                            Login
+                        </button>
+                    </form>
+
+                    <hr>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Dashboard</title>
+
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet"
+          href="{% static 'dashboard/dashboard.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <aside class="sidebar">
+
+        <h2>Allen Portfolio</h2>
+
+        <ul>
+
+            <li><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+
+            <a href="{% url 'accounts:profile' %}" class="btn btn-primary">Profile</a>
+
+            <a href="{% url 'contact:contact' %}"class="btn btn-primary">
+                Contact Page</a>
+
+            <li><a href="{% url 'skills:skill_list' %}" class="btn btn-primary">
+                <i class="fas fa-code"></i> Skills </a></li>
+
+            <li><a href="{% url 'education:education_list' %}" class="btn btn-primary">
+                <i class="fas fa-graduation-cap"></i> Education
+            </a></li>
+             
+            <li>
+            <a href="{% url 'experience:experience_list' %}"class="btn btn-primary">Experience</a>
+            </li>
+
+            <li><a href="{% url 'portfolio:portfolio_list' %}" class="btn btn-danger">
+                <i class="fas fa-folder"></i> Portfolio
+            </a></li>
+
+
+      <li>
+        {% if home and home.resume %}
+
+        <a class="dropdown-item" href="{{ home.resume.url }}"target="_blank">
+            <i class="fas fa-file-alt me-2"></i>
+            Resume
+
+        </a>
+         {% else %}
+
+        <a class="dropdown-item" href="#">
+        <i class="fas fa-file-alt me-2"></i>
+            Resume (Not Uploaded)
+        </a>
+
+         {% endif %}
+       </li>
+
+        
+<a href="{% url 'contact:message_list' %}" class="text-decoration-none">
+<div class="card shadow">
+<div class="card-body text-center">
+
+<h3>
+{{ messages_count }}
+</h3>
+
+<p>Messages</p>
+
+</div>
+</div>
+
+            <li><a href="{% url 'home' %}">
+                <i class="fas fa-globe"></i> View Website
+            </a></li>
+
+           </ul>
+
+    </aside>
+
+    <main class="content">
+
+        <h1>Welcome Back 👋</h1>
+
+        <p>Manage your personal portfolio from one place.</p>
+
+        <div class="row mt-4">
+
+            <div class="col-md-3">
+            <div class="stat-card">
+            <h2>{{ skills_count }}</h2>
+                <p>Skills</p>
+            </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="stat-card">
+                <h2>{{ projects_count }}</h2>
+                <p>Projects</p>
+            </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="stat-card">
+                <h2>{{ education_count }}</h2>
+                <p>Education</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+            <div class="stat-card">
+            <h2>4</h2>
+            <p>Experience</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="recent">
+        <h3>Recent Activity</h3>
+       <div class="activity">
+        <p>✔ Added new Django project</p>
+        <p>✔ Updated Skills</p>
+        <p>✔ Uploaded Resume</p>
+        </div>
+       </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

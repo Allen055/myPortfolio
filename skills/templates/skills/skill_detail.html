@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Skill{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>{{ skill.name }}</h2>
+
+<p><strong>Level:</strong> {{ skill.level }}</p>
+
+<p>{{ skill.description }}</p>
+
+<a href="{% url 'skills:skill_update' skill.pk %}"
+class="btn btn-warning">
+
+Edit
+
+</a>
+
+<a href="{% url 'skills:skill_delete' skill.pk %}"
+class="btn btn-danger">
+
+Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
