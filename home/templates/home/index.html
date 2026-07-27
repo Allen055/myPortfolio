@@ -2,58 +2,147 @@
 
 {% block content %}
 
-<section class="hero-section">
+<section class="hero-section py-5">
 
-    <div class="container-fluid">
+    <div class="container-fluid px-5">
+    <div class="row align-items-center justify-content-between">
 
-        <div class="row align-items-center">
 
             <!-- Left Side -->
-            <div class="col-lg-6 hero-text">
+            <div class="col-lg-5 hero-text">
 
-                <h5 class="text-primary">
+                <h5 class="text-primary mb-4">
                     Welcome to my Portfolio
                 </h5>
 
-                <h1>
+
+                <h1 class="mb-3">
                     {{ home.full_name }}
                 </h1>
 
-                <h2>
+
+                <h2 class="mb-4">
                     {{ home.profession }}
                 </h2>
 
-                <p>
+
+                <p class="mb-4">
                     {{ home.short_bio }}
                 </p>
 
 
-                <div class="hero-buttons">
 
-                    {% if home.resume %}
-                    <a href="{{ home.resume.url }}" class="btn btn-primary btn-lg" download>  Download Resume</a>
-                    
-                    {% endif %}
+                {% if home.resume %}
+
+                <a href="{{ home.resume.url }}"
+                   class="btn btn-primary btn-lg mb-4"
+                   target="_blank">
+
+                    Download Resume
+
+                </a>
+
+                {% endif %}
 
 
-                    <a href="{% url 'portfolio:portfolio_list' %}"
-                       class="btn btn-outline-light btn-lg">
-                        View Portfolio
-                    </a>
+
+                <!-- Tech Stack -->
+                <div class="tech-stack">
+
+                    <span class="tech-badge">🐍 Python</span>
+
+                    <span class="tech-badge">⚡ Django</span>
+
+                    <span class="tech-badge">⚛ React</span>
+
+                    <span class="tech-badge">💻 JavaScript</span>
+
+                    <span class="tech-badge">🎨 HTML5</span>
+
+                    <span class="tech-badge">🎯 CSS3</span>
+
+                    <span class="tech-badge">🗄️ MySQL</span>
+
+                    <span class="tech-badge">🐙 Git</span>
 
                 </div>
+
 
             </div>
 
 
+
             <!-- Right Side -->
-            <div class="col-lg-6 hero-image text-center">
+            <div class="col-lg-5 hero-image text-lg-end text-center">
+
 
                 {% if home.hero_image %}
-                    <img src="{{ home.hero_image.url }}"
-                         class="img-fluid rounded-circle shadow-lg"
-                         alt="{{ home.full_name }}">
+
+                <img src="{{ home.hero_image.url }}"
+                     class="img-fluid shadow-lg hero-photo"
+                     alt="{{ home.full_name }}">
+
                 {% endif %}
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- Statistics -->
+
+<section class="statistics-section py-5">
+
+    <div class="container">
+
+        <div class="hero-stats">
+
+
+            <div class="stat-card">
+
+                <h3>10+</h3>
+
+                <p>Projects</p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <h3>8</h3>
+
+                <p>Technologies</p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <h3>5+</h3>
+
+                <p>Applications Built</p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <h3>🌍</h3>
+
+                <p>Available for Freelance</p>
 
             </div>
 
@@ -63,5 +152,6 @@
     </div>
 
 </section>
+
 
 {% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ blog.title }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1>
+        {{ blog.title }}
+    </h1>
+
+    <p class="text-muted">
+
+        {{ blog.created_at|date:"F d, Y" }}
+
+    </p>
+
+    {% if blog.featured_image %}
+
+    <img src="{{ blog.featured_image.url }}"
+         class="img-fluid rounded mb-4">
+
+    {% endif %}
+
+    <p>
+        {{ blog.content|linebreaks }}
+    </p>
+
+</div>
+
+{% endblock %}

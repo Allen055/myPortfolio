@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+Delete Blog
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="card shadow">
+
+<div class="card-body text-center">
+
+<h2>
+
+Delete "{{ blog.title }}"?
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<button class="btn btn-danger">Delete</button>
+
+<a href="{% url 'blog:blog_list' %}"
+   class="btn btn-secondary">Cancel</a>
+
+</form>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

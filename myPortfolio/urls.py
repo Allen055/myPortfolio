@@ -28,10 +28,12 @@ urlpatterns = [
     path("portfolio/", include("portfolio.urls")),
     path("skills/", include("skills.urls")),
     path("education/", include("education.urls")),
+    path("blog/", include("blog.urls")),
     path("dashboard/", include("dashboard.urls")),
     path("experience/", include("experience.urls")),
     path( "accounts/",include((accounts_urls, "accounts"),namespace="accounts")),
-     path("contact/", include("contact.urls")),
+    path("contact/", include("contact.urls")),
+    
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
