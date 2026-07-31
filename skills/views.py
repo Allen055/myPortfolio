@@ -68,7 +68,7 @@ def skill_delete(request, pk):
     if request.method == "POST":
         skill.delete()
         return redirect("skills:skill_list")
-    return render(request, "skills/sill_delete.html", {"skill": skill})
+    return render(request, "skills/skill_delete.html", {"skill": skill})
 
 
 
