@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="container py-5">
+
+```
+<div class="row justify-content-center">
+
+    <div class="col-lg-9">
+
+        <h1 class="mb-4 text-primary">
+            📖 My Story
+        </h1>
+
+        <p class="lead">
+            Every developer has a story, and mine began with a curiosity about
+            how technology can solve everyday problems. What started as an
+            interest in computers gradually grew into a passion for software
+            development and building digital solutions.
+        </p>
+
+        <p>
+            I started my programming journey by learning Python, where I
+            discovered the power of writing clean, logical, and reusable code.
+            As my confidence grew, I expanded into web development using
+            Django, creating applications that combine functionality,
+            performance, and great user experiences.
+        </p>
+
+        <p>
+            Throughout my learning journey, I have built several projects,
+            including portfolio websites, management systems, e-commerce
+            applications, and database-driven web applications. Each project
+            has strengthened my understanding of backend development,
+            frontend integration, database design, and software engineering
+            best practices.
+        </p>
+
+        <p>
+            I believe that continuous learning is the key to becoming a better
+            developer. Technology evolves every day, and I enjoy exploring new
+            tools, frameworks, and development techniques that improve the
+            quality of the software I build.
+        </p>
+
+        <p>
+            Today, I continue to sharpen my skills by developing real-world
+            projects, solving programming challenges, and creating applications
+            that are reliable, scalable, and user-focused.
+        </p>
+
+        <a href="{% url 'about:about' %}"
+           class="btn btn-primary mt-4">
+            ← Back to About
+        </a>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

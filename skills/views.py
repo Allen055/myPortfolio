@@ -63,11 +63,15 @@ def skill_update(request, pk):
 # PRIVATE
 @login_required
 def skill_delete(request, pk):
-
     skill = get_object_or_404(Skill, pk=pk)
 
     if request.method == "POST":
         skill.delete()
         return redirect("skills:skill_list")
+    return render(request, "skills/sill_delete.html", {"skill": skill})
 
-    return render(request, "skills/skill_delete.html", {"skill": skill})
+
+
+
+
+

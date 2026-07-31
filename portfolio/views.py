@@ -54,10 +54,7 @@ def portfolio_create(request):
 
 def portfolio_update(request, pk):
 
-    project = get_object_or_404(
-        Portfolio,
-        pk=pk
-    )
+    project = get_object_or_404(Portfolio,pk=pk)
 
     if request.method == "POST":
 

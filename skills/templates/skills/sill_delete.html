@@ -1,36 +1,49 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Delete Skill{% endblock %}
 
 {% block content %}
 
-<div class="container py-5 text-center">
+<div class="container py-5">
 
-<h2>
+    <div class="card shadow p-4 text-center">
 
-Delete "{{ skill.name }}"?
+        <h2 class="mb-4">
+            Delete Skill
+        </h2>
 
-</h2>
 
-<form method="POST">
+        <p>
+            Are you sure you want to delete
+            <strong>{{ skill.name }}</strong>?
+        </p>
 
-{% csrf_token %}
 
-<button class="btn btn-danger">
+        <form method="POST">
 
-Delete
+            {% csrf_token %}
 
-</button>
+            <button type="submit"
+                    class="btn btn-danger">
 
-<a href="{% url 'skill_list' %}"
-class="btn btn-secondary">
+                Yes, Delete
 
-Cancel
+            </button>
 
-</a>
 
-</form>
+            <a href="{% url 'skills:skill_list' %}"
+               class="btn btn-secondary">
+
+                Cancel
+
+            </a>
+
+
+        </form>
+
+
+    </div>
 
 </div>
+
 
 {% endblock %}

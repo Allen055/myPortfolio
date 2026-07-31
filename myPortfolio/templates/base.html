@@ -45,7 +45,7 @@
  <ul class="dropdown-menu dropdown-menu-end menu-card">
 
     <li>
-        <a class="dropdown-item" href="{% url 'about' %}">
+        <a class="dropdown-item" href="{% url 'about:about' %}">
             <i class="fas fa-user me-2"></i> About
         </a>
     </li>
@@ -172,7 +172,7 @@
                     </li>
 
                     <li>
-                        <a href="{% url 'about' %}">About</a>
+                        <a href="{% url 'about:about' %}">About</a>
                     </li>
 
                     <li>
@@ -205,7 +205,8 @@
                     <p>📞 {{ home.phone }}</p>
                     <p>📍 {{ home.location }}</p>
                 {% else %}
-                    <p>Email: your@email.com</p>
+
+             <p>Email: allenamaechi@gmail.com</p>
                 {% endif %}
 
                 <div class="social-links">

@@ -24,7 +24,7 @@ from accounts import urls as accounts_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path("", include("about.urls")),
+    path("about/", include("about.urls")),
     path("portfolio/", include("portfolio.urls")),
     path("skills/", include("skills.urls")),
     path("education/", include("education.urls")),
