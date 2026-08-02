@@ -11,10 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import cloudinary
 from decouple import config
 import dj_database_url
-import cloudinary
 import os
 
 
@@ -143,12 +141,14 @@ STATICFILES_DIRS = [BASE_DIR / 'myPortfolio' / 'static']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-cloudinary.config(
-    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
-    api_key=os.environ.get("CLOUDINARY_API_KEY"),
-    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
-    secure=True,
-)
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": config("CLOUDINARY_API_KEY"),
+    "API_SECRET": config("CLOUDINARY_API_SECRET"),
+}
+
+
+
 
 STORAGES = {
     "default": {
