@@ -180,10 +180,9 @@ img {
     margin-top: -80px;
     margin-left: 170px;
     transition: 0.4s;
-    padding: 5px;
-
-   
+    padding: 5px; 
 }
+
 @media (max-width: 768px) {
 
     .hero-image img {
