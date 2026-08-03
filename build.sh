@@ -7,4 +7,6 @@ python manage.py collectstatic --noinput
 
 python manage.py migrate
 
+python manage.py loaddata portfolio_data.json || true
+
 python manage.py createsuperuser --noinput || true
