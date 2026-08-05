@@ -4,16 +4,17 @@
 
 <section class="hero-section py-5">
 
-    <div class="container-fluid px-5">
-    <div class="row align-items-center justify-content-between">
+    <div class="container-fluid px-lg-5 px-3">
+
+        <div class="row align-items-center">
 
 
             <!-- Left Side -->
-            <div class="col-lg-5 hero-text">
+        <div class="col-lg-6 hero-text">
 
-                <h5 class="text-primary mb-4">
-                    Welcome to my Portfolio
-                </h5>
+        <h5 class="welcome-title mb-4">
+            Welcome to my Portfolio
+        </h5>
 
 
                 <h1 class="mb-3">
@@ -31,7 +32,6 @@
                 </p>
 
 
-
                 {% if home.resume %}
 
                 <a href="{{ home.resume.url }}"
@@ -45,36 +45,24 @@
                 {% endif %}
 
 
-
-                <!-- Tech Stack -->
                 <div class="tech-stack">
 
-                    <span class="tech-badge">🐍 Python</span>
-
-                    <span class="tech-badge">⚡ Django</span>
-
-                    <span class="tech-badge">⚛ React</span>
-
-                    <span class="tech-badge">💻 JavaScript</span>
-
-                    <span class="tech-badge">🎨 HTML5</span>
-
-                    <span class="tech-badge">🎯 CSS3</span>
-
-                    <span class="tech-badge">🗄️ MySQL</span>
-
-                    <span class="tech-badge">🐙 Git</span>
+                    <span class="tech-badge"> Python</span>
+                    <span class="tech-badge"> Django</span>
+                    <span class="tech-badge"> React</span>
+                    <span class="tech-badge"> JavaScript</span>
+                    <span class="tech-badge"> HTML5</span>
+                    <span class="tech-badge"> CSS3</span>
+                    <span class="tech-badge"> MySQL</span>
+                    <span class="tech-badge"> Git</span>
 
                 </div>
-
 
             </div>
 
 
-
             <!-- Right Side -->
-            <div class="col-lg-5 hero-image text-center">
-
+            <div class="col-lg-6 hero-image">
 
                 {% if home.hero_image %}
 
@@ -84,15 +72,12 @@
 
                 {% endif %}
 
-
             </div>
 
 
         </div>
 
-
     </div>
-
 
 </section>
 
