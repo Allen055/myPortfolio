@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'contact',
     'cloudinary',
     'cloudinary_storage',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Skills{% endblock %}
+{% block title %}Skills | Allen Amaechi{% endblock %}
 
 {% block content %}
 
@@ -30,26 +30,24 @@
                 {% if skill.icon %}
 
                 <img src="{{ skill.icon.url }}"
-                     class="card-img-top"
-                     style="height:180px;object-fit:cover;">
+                 class="card-img-top skill-image"
+                 style="width:500px; height:400px; object-fit:cover;">
 
-                {% endif %}
+                  {% endif %}
 
                 <div class="card-body">
 
                     <h4>{{ skill.name }}</h4>
 
-                    <p>{{ skill.level }}</p>
+            <p>{{ skill.level }}</p>
 
-                    <div class="progress mb-3">
+            <div class="progress mb-3">
 
-                        <div class="progress-bar"
+          <div class="progress-bar"
+             style="width:{{ skill.percentage }}%;">
+                 {{ skill.percentage }}%
 
-                             style="width:{{ skill.percentage }}%;">
-
-                            {{ skill.percentage }}%
-
-                        </div>
+         </div>
 
                     </div>
 
