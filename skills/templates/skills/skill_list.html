@@ -1,78 +1,77 @@
 {% extends "base.html" %}
-
 {% block title %}Skills | Allen Amaechi{% endblock %}
 
+{% block description %}
+Explore the technical skills and proficiencies of Allen Amaechi, including Django, Python, React, JavaScript, CSS, and database management.
+{% endblock %}
+
 {% block content %}
-
 <div class="container py-5">
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-
-        <h2>My Skills</h2>
-
-        <a href="{% url 'skills:skill_create' %}"
-           class="btn btn-primary">
-
-            Add Skill
-
-        </a>
-
+    <div class="mb-5 text-center text-md-start">
+        <h2 class="fw-bold display-6">My Skills</h2>
+        <p class="text-muted fs-5">Technologies, frameworks, and tools I work with.</p>
     </div>
 
     <div class="row">
-
         {% for skill in skills %}
+        <!-- col-lg-6 gives wider cards so images can expand substantially -->
+        <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card h-100 shadow p-4 border-0 rounded-4 text-center">
 
-        <div class="col-md-4 mb-4">
-
-            <div class="card shadow h-100">
-
+                <!-- 1. Extra Large Image Box (Height: 300px) -->
                 {% if skill.icon %}
-
-                <img src="{{ skill.icon.url }}"
-                 class="card-img-top skill-image"
-                 style="width:500px; height:400px; object-fit:cover;">
-
-                  {% endif %}
-
-                <div class="card-body">
-
-                    <h4>{{ skill.name }}</h4>
-
-            <p>{{ skill.level }}</p>
-
-            <div class="progress mb-3">
-
-          <div class="progress-bar"
-             style="width:{{ skill.percentage }}%;">
-                 {{ skill.percentage }}%
-
-         </div>
-
+                    <div class="d-flex align-items-center justify-content-center bg-light rounded-4 p-2 mb-4 mx-auto w-100" 
+                         style="height: 300px;">
+                        <img src="{{ skill.icon.url }}" 
+                             alt="{{ skill.name }}" 
+                             style="max-height: 280px; max-width: 100%; width: auto; object-fit: contain;">
                     </div>
+                {% endif %}
 
-                    <a href="{% url 'skills:skill_detail' skill.pk %}"
+                <!-- 2. Centered Title & Level Badge -->
+                <h3 class="fw-bold text-dark mb-2 fs-2">{{ skill.name }}</h3>
 
-                       class="btn btn-dark">
+                {% if skill.level %}
+                    <div class="mb-3">
+                        <span class="badge bg-primary fs-6 px-3 py-2 rounded-pill">
+                            {{ skill.level }}
+                        </span>
+                    </div>
+                {% endif %}
 
-                        View
+                <!-- 3. Description -->
+                {% if skill.description %}
+                    <p class="text-secondary fs-6 mb-4 text-start" style="line-height: 1.6;">
+                        {{ skill.description }}
+                    </p>
+                {% endif %}
 
-                    </a>
-
-                </div>
+                <!-- 4. Proficiency Bar (Pinned to Bottom) -->
+                {% if skill.percentage %}
+                    <div class="mt-auto pt-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="fw-semibold text-muted fs-6">Proficiency</span>
+                            <span class="fw-bold text-primary fs-5">{{ skill.percentage }}%</span>
+                        </div>
+                        <div class="progress rounded-pill" style="height: 12px; background-color: #e9ecef;">
+                            <div class="progress-bar bg-primary rounded-pill" 
+                                 role="progressbar" 
+                                 style="width: {{ skill.percentage }}%;" 
+                                 aria-valuenow="{{ skill.percentage }}" 
+                                 aria-valuemin="0" 
+                                 aria-valuemax="100">
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
 
             </div>
-
         </div>
-
         {% empty %}
-
-        <p>No skills available.</p>
-
+        <div class="col-12 text-center py-5">
+            <p class="text-muted fs-4">No skills added yet.</p>
+        </div>
         {% endfor %}
-
     </div>
-
 </div>
-
 {% endblock %}

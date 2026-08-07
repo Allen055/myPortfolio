@@ -9,18 +9,20 @@ from home.models import Home
 
 
 def dashboard(request):
+
     home = Home.objects.first()
 
+    projects = Portfolio.objects.all()
+
     context = {
-    "skills_count": Skill.objects.count(),
-    "projects_count": Portfolio.objects.count(),
-    "education_count": Education.objects.count(),
-    "experience_count": Experience.objects.count(),
-    "messages_count": ContactMessage.objects.count(),
-    "home": home,
-
-   }
-
+        "skills_count": Skill.objects.count(),
+        "projects_count": Portfolio.objects.count(),
+        "education_count": Education.objects.count(),
+        "experience_count": Experience.objects.count(),
+        "messages_count": ContactMessage.objects.count(),
+        "home": home,
+        "projects": projects,
+    }
 
     return render(
         request,

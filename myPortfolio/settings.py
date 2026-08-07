@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'accounts',
     'home',
@@ -58,7 +59,6 @@ INSTALLED_APPS = [
     'experience',
     'contact',
     'cloudinary',
-    'cloudinary_storage',
     'django.contrib.sitemaps',
 ]
 
@@ -170,6 +170,7 @@ LOGOUT_REDIRECT_URL = "accounts:login"
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
