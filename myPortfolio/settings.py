@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'accounts',
     'home',
     "dashboard",
@@ -137,8 +137,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'myPortfolio' / 'static']
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/'myPortfolio' / 'static']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
@@ -148,9 +148,8 @@ CLOUDINARY_STORAGE = {
     "API_SECRET": config("CLOUDINARY_API_SECRET"),
 }
 
-# Compatibility setting required by django-cloudinary-storage
+ #Compatibility setting required by django-cloudinary-storage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
-
 
 STORAGES = {
     "default": {
@@ -160,7 +159,6 @@ STORAGES = {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
-
 
 
 
