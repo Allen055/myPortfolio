@@ -9,35 +9,23 @@ Allen Amaechi is a Django, Python, React and JavaScript web developer building r
 {% block content %}
 
 <section class="hero-section py-5">
-
-    <div class="container-fluid px-lg-5 px-3">
-
-        <div class="row align-items-center">
+     <div class="container-fluid px-4 px-lg-5" >
+     <div class="row align-items-center justify-content-between">
 
 
             <!-- Left Side -->
-        <div class="col-lg-6 hero-text">
+     <div class="col-lg-6 hero-text">
+       <h2 class="hero-title">Welcome to my Portfolio</h2>
+       <h1 class="hero-name">{{ home.full_name }}</h1>
+       <p class="hero-subtitle">{{ home.profession}}</p>
+       <p class="hero-description">{{ home.short_bio }}</p>
 
-        <h5 class="welcome-title mb-4">
-            Welcome to my Portfolio
-        </h5>
+       {% if home.resume %}
+       <a href="{{ home.resume.url }}" class="btn btn-primary btn-lg mt-3" download>Download Resume </a>
+       {% endif %} 
+    </div>
 
-
-                <h1 class="mb-3">
-                    {{ home.full_name }}
-                </h1>
-
-
-                <h2 class="mb-4">
-                    {{ home.profession }}
-                </h2>
-
-
-                <p class="mb-4">
-                    {{ home.short_bio }}
-                </p>
-
-
+<!-- <br> <br>
                 {% if home.resume %}
 
                 <a href="{{ home.resume.url }}"
@@ -47,41 +35,31 @@ Allen Amaechi is a Django, Python, React and JavaScript web developer building r
                     Download Resume
 
                 </a>
+                {% endif %} -->
 
-                {% endif %}
 
-
-                <div class="tech-stack">
-
-                    <span class="tech-badge"> Python</span>
-                    <span class="tech-badge"> Django</span>
-                    <span class="tech-badge"> React</span>
-                    <span class="tech-badge"> JavaScript</span>
-                    <span class="tech-badge"> HTML5</span>
-                    <span class="tech-badge"> CSS3</span>
-                    <span class="tech-badge"> MySQL</span>
-                    <span class="tech-badge"> Git</span>
-
+                <!-- <div class="tech-stack">
+                    <span class="tech-badge">HTML</span>
+                    <span class="tech-badge">CSS</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Django</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">Git</span>
                 </div>
-
-            </div>
-
-
-            <!-- Right Side -->
-            <div class="col-lg-6 hero-image">
-
-                {% if home.hero_image %}
-
-                <img src="{{ home.hero_image.url }}"
-                     class="img-fluid shadow-lg hero-photo"
-                     alt="{{ home.full_name }}">
-
-                {% endif %}
-
-            </div>
+            </div> -->
 
 
-        </div>
+            <!-- Right Side image-->
+
+       <div class="col-lg-6 hero-image pe-lg-5">
+          {% if home.hero_image %}
+       <img src="{{ home.hero_image.url }}" class="hero-photo" alt="{{ home.full_name }}">
+
+        {% endif %}          
+       </div>
+      </div>
 
     </div>
 

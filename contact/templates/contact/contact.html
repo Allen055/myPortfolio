@@ -1,41 +1,38 @@
 {% extends "base.html" %}
 
-
-{% block title %}
-Contact Me
-{% endblock %}
-
-
+{% block title %}Contact Me{% endblock %}
 
 {% block content %}
-
-
 <div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-0 shadow-lg p-4 rounded-4">
+        <h2 class="text-center fw-bold text-dark mb-2">Contact Me</h2>
+        <p class="text-center text-muted mb-4">Have a project idea? Send me a message.</p>
 
+        <form method="POST" novalidate>
+          {% csrf_token %}
 
-<div class="card shadow p-4">
+          {% for field in form %}
+            <div class="mb-3">
+              <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
+                {{ field.label }}
+              </label>
+              {{ field }}
+              {% if field.errors %}
+                <div class="text-danger small mt-1">
+                  {{ field.errors.0 }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
 
-
-<h1 class="text-center mb-4">Contact Me</h1>
-
-<p class="text-center"> Have a project idea? Send me a message.</p>
-
-
-<form method="POST">
-
-{% csrf_token %}
-
-
-{{ form.as_p }}
-
-
-<button class="btn btn-primary">
-
-Send Message
-
-</button>
-
-</form>
-</div>
+          <button type="submit" class="btn btn-primary w-100 py-2 mt-5 fw-semibold rounded-3 ">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

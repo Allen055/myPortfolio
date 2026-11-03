@@ -16,8 +16,17 @@ Browse Allen Amaechi's portfolio of Django, React, Python, and full-stack web de
         <div class="col-md-4 mb-4">
             <div class="card h-100 shadow-sm">
                 {% if project.image %}
-                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
-                {% endif %}
+                <div class="card-img-wrapper">
+                    <!-- Primary Image -->
+                 <img src="{{ project.image.url }}" class="card-img-top img-primary" alt="{{ project.title }}">
+                 
+                      <!-- Hover Image (If uploaded) -->
+                {% if project.hover_image %}
+                 <img src="{{ project.hover_image.url }}" class="card-img-top img-secondary" alt="{{ project.title }} Hover">
+              {% endif %}
+                </div>
+            {% endif %}
+
 
                 <div class="card-body d-flex flex-column">
                     <h4>{{ project.title }}</h4>

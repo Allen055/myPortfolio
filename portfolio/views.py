@@ -22,10 +22,7 @@ def portfolio_detail(request, pk):
         pk=pk
     )
 
-    return render(
-        request,
-        "portfolio/portfolio_detail.html",
-        {"project": project},
+    return render( request, "portfolio/portfolio_detail.html", {"project": project},
     )
 
 

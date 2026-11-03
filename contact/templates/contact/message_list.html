@@ -2,73 +2,41 @@
 
 {% block title %}Contact | Allen Amaechi{% endblock %}
 
-
 {% block content %}
-
-
 <div class="container py-5">
+  <h2 class="fw-bold mb-4">Client Messages</h2>
 
+  <div class="row">
+    {% for message in messages %}
+      <div class="col-12 mb-3">
+        <div class="card border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <h4 class="card-title text-primary fw-bold mb-0">{{ message.subject }}</h4>
+              <small class="text-muted">{{ message.created_at }}</small>
+            </div>
 
-<h1 class="mb-4">
-Client Messages
-</h1>
+            <div class="mb-3 text-muted">
+              <span class="me-3"><strong>Name:</strong> {{ message.name }}</span>
+              <span class="me-3"><strong>Email:</strong> {{ message.email }}</span>
+              {% if message.phone %}
+                <span><strong>Phone:</strong> {{ message.phone }}</span>
+              {% endif %}
+            </div>
 
-
-
-{% for message in messages %}
-
-
-<div class="card shadow mb-3">
-
-
-<div class="card-body">
-
-
-<h4>
-{{ message.subject }}
-</h4>
-
-
-<p>
-<strong>Name:</strong>
-{{ message.name }}
-</p>
-
-
-<p>
-<strong>Email:</strong>
-{{ message.email }}
-</p>
-
-
-<p>
-<strong>Phone:</strong>
-{{ message.phone }}
-</p>
-
-
-<p>
-{{ message.message }}
-</p>
-
-
-<small class="text-muted">
-{{ message.created_at }}
-</small>
-
-
+            <p class="card-text text-dark bg-light p-3 rounded-2 mb-0">
+              {{ message.message }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <div class="col-12">
+        <div class="alert alert-info border-0 shadow-sm rounded-3">
+          No messages received yet.
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 </div>
-</div>
-
-{% empty %}
-
-<div class="alert alert-info">
-
-No messages yet.
-</div>
-
-{% endfor %}
-
-</div>
-
 {% endblock %}

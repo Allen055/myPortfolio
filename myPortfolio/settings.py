@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 import dj_database_url
 
 
@@ -141,24 +142,27 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
+MEDIA_URL ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": config("CLOUDINARY_API_KEY"),
-    "API_SECRET": config("CLOUDINARY_API_SECRET"),
-}
 
- #Compatibility setting required by django-cloudinary-storage
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+# CLOUDINARY_STORAGE = {
+#     "CLOUD_NAME": config("CLOUDINARY_CLOUD_NAME"),
+#     "API_KEY": config("CLOUDINARY_API_KEY"),
+#     "API_SECRET": config("CLOUDINARY_API_SECRET"),
+# }
 
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
+#  #Compatibility setting required by django-cloudinary-storage
+# STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+#     },
+# }
 
 
 
@@ -175,4 +179,5 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
 

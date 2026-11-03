@@ -1,42 +1,50 @@
 {% extends 'base.html' %}
 
+{% block title %}Login | Allen Portfolio{% endblock %}
+
 {% block content %}
-
-<div class="container mt-5">
-
+<div class="container py-5">
     <div class="row justify-content-center">
-
-        <div class="col-md-5">
-
-            <div class="card shadow">
-
-                <div class="card-header bg-dark text-white">
-                    <h3>Login</h3>
+        <div class="col-md-6 col-lg-5">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-header bg-dark text-white text-center py-3 border-0">
+                    <h3 class="fw-bold m-0">Welcome Back</h3>
                 </div>
 
-                <div class="card-body">
-
-                    <!-- 👇 THIS IS WHERE YOUR FORM GOES -->
-                    <form method="POST">
+                <div class="card-body p-4">
+                    <form method="POST" novalidate>
                         {% csrf_token %}
 
-                        {{ form.as_p }}
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger p-2 small">
+                                {{ form.non_field_errors.0 }}
+                            </div>
+                        {% endif %}
 
-                        <button type="submit">
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label fw-semibold text-secondary small">
+                                    {{ field.label }}
+                                </label>
+                                <!-- Apply form-control fallback for Django's built-in AuthenticationForm -->
+                                <input type="{{ field.field.widget.input_type }}" 
+                                       name="{{ field.name }}" 
+                                       id="{{ field.id_for_label }}" 
+                                       class="form-control" 
+                                       value="{{ field.value|default_if_none:'' }}" required>
+                                {% if field.errors %}
+                                    <div class="text-danger small mt-1">{{ field.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        <button type="submit" class="btn btn-primary w-100 py-2 mt-2 fw-semibold rounded-3">
                             Login
                         </button>
                     </form>
-
-                    <hr>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 {% endblock %}
